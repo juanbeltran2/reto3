@@ -10,25 +10,25 @@ public class Message implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idMessage;
     private String messageText;
     
     @ManyToOne
-    @JoinColumn(name="clientID")
-    @JsonIgnoreProperties("messages")
-    private Client client;
-
-    @ManyToOne
     @JoinColumn(name="farmID")
-    @JsonIgnoreProperties("messages")
+    @JsonIgnoreProperties({"messages","reservations"})
     private Farm farm;
 
-    public Integer getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name="clientID")
+    @JsonIgnoreProperties({"messages","reservations"})
+    private Client client;
+
+    public Integer getIdMessage() {
+        return idMessage;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdMessage(Integer idMessage) {
+        this.idMessage = idMessage;
     }
 
     public String getMessageText() {
@@ -39,14 +39,6 @@ public class Message implements Serializable {
         this.messageText = messageText;
     }
 
-    public Client getClient() {
-        return client;
-    }
-
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
     public Farm getFarm() {
         return farm;
     }
@@ -55,6 +47,13 @@ public class Message implements Serializable {
         this.farm = farm;
     }
 
-    
-    
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
+
+        
 }

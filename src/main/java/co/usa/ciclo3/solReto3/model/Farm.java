@@ -14,9 +14,9 @@ public class Farm implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String address;
-    private String extension;
     private String name;
+    private String address;
+    private String extension;    
     private String description;
 
     @ManyToOne
@@ -40,6 +40,14 @@ public class Farm implements Serializable {
         this.id = id;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -54,14 +62,6 @@ public class Farm implements Serializable {
 
     public void setExtension(String extension) {
         this.extension = extension;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getDescription() {
@@ -96,5 +96,6 @@ public class Farm implements Serializable {
         this.reservations = reservations;
     }
 
+    
     
 }

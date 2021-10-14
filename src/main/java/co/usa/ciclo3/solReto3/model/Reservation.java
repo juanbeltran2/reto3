@@ -9,7 +9,7 @@ import java.io.Serializable;
 public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Integer idReservation;
     private String startDate;
     private String devolutionDate;
 
@@ -23,12 +23,12 @@ public class Reservation implements Serializable {
     @JsonIgnoreProperties("reservations")
     private Farm farm;
 
-    public Integer getId() {
-        return id;
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
     }
 
     public String getStartDate() {
@@ -63,5 +63,6 @@ public class Reservation implements Serializable {
         this.farm = farm;
     }
 
+    
         
 }
