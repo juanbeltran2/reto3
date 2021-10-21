@@ -21,9 +21,9 @@ public class Client implements Serializable{
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
     @JsonIgnoreProperties("client")
     public List<Message> messages;
-
-    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "clientReserva")
-    @JsonIgnoreProperties("clientReserva")
+    
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "client")
+    @JsonIgnoreProperties("client")
     public List<Reservation> reservations;
 
     public Integer getIdClient() {
@@ -83,5 +83,4 @@ public class Client implements Serializable{
     }
 
     
-     
 }

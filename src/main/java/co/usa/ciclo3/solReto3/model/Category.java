@@ -52,6 +52,5 @@ public class Category implements Serializable {
     public void setFarms(List<Farm> farms) {
         this.farms = farms;
     }
-
         
 }
