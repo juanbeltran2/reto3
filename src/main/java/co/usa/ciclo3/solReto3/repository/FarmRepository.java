@@ -27,5 +27,9 @@ public class FarmRepository {
     public Farm save(Farm p){
         return farmCrudRepository.save(p);
     }
+
+    public void delete(Farm p){
+        farmCrudRepository.delete(p);
+    }
     
 }
