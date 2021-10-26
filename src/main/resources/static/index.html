@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <title>Reto 3 - ALQUILER DE FINCAS </title>
+</head>
+<body>
+
+    <!-- Titulo -->    
+    <h1 align="center"> ALQUILER DE FINCAS</h1>
+
+    <!-- Se crea la tabla de creacion -->    
+    <table class="table table-hover table-condensed table-bordered" align="center">
+        <thead style="color:#fff;background-color:#337ab7;border-color:#2e6da4">
+            <tr align="center">
+                <td colspan="4" >REGISTROS NUEVO</td>
+            </tr>
+            <tr align="center">
+                <td><button id="show1">Categoria</button></td>
+                <td><button id="show2">Finca</button></td>
+                <td><button id="show3">Cliente</button></td>
+                <td><button id="show4">Mensaje</button></td>
+            <!--    <td><button id="show5">Reservacion</button></td> -->
+            </tr>
+        </thead>
+    </table>
+
+    <br> 
+
+    <!-- Div que contienen los txt para agregar -->        
+    <div id="creacionCategoria" style="display: none;" align="center">         
+        <input type="text" name="txtnameCat" id="txtnameCat" placeholder="Name">
+        <input type="text" name="txtDescriptionCat" id="txtDescriptionCat" placeholder="Description">
+        <button onclick="registrarDescripcion();">Registrar Categoria</button>
+    </div>
+
+    <div id="creacionFinca" style="display: none;" align="center">         
+        <input type="text" name="txtAddressFarm" id="txtAddressFarm" placeholder="Address">
+        <input type="text" name="txtExtensionFarm" id="txtExtensionFarm" placeholder="Extension">
+        <input type="text" name="txtNameFarm" id="txtNameFarm" placeholder="Name">
+        <input type="text" name="txtDescriptionFarm" id="txtDescriptionFarm" placeholder="Description">
+        <button onclick="registrarFarm();">Registrar Finca</button>
+    </div>
+
+    <div id="creacionCliente" style="display: none;" align="center">      
+        <input type="text" name="txtNameClient" id="txtNameClient" placeholder="Name">  
+        <input type="number" name="txtAgeClient" id="txtAgeClient" placeholder="Age"> 
+        <input type="text" name="txtEmailClient" id="txtEmailClient" placeholder="Email"> 
+        <input type="text" name="txtPassClient" id="txtPassClient" placeholder="Password">          
+        <button onclick="registrarClient();">Registrar Cliente</button>
+    </div>
+
+    <div id="creacionMessage" style="display: none;" align="center">      
+        <input type="text" name="txtmessage" id="txtmessage" placeholder="Message">      
+        <button onclick="registrarMessage();">Registrar Mensaje</button>
+    </div>
+
+    <div id="creacionReservation" style="display: none;" align="center">      
+        <input type="text" name="txtmessage" id="txtmessage" placeholder="Message">      
+        <button onclick="registrarMessage();">Registrar Mensaje</button>
+    </div>
+
+    <br>
+
+    <!-- Tabla de detalles -->    
+
+    <table class="table table-hover table-condensed table-bordered" align="center">
+        <thead style="color:#fff;background-color:#337ab7;border-color:#2e6da4">
+            <tr align="center">
+                <td colspan="4"> VER DETALLES </td>
+            </tr>
+            <tr align="center">
+                <td><button onclick="detCategory()">Categoria</button></td>
+                <td><button onclick="detFinca()">Finca</button></td>
+                <td><button onclick="detClient()">Cliente</button></td>
+                <td><button onclick="detMensaje()">Mensaje</button></td>
+            </tr>
+        </thead>
+    </table>
+
+    <!-- Se muestran los resultados de los detalles -->    
+    <div id="listado">   
+
+    </div>
+
+    <!-- Librerias a llamar --> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="js/funcionesCategoria.js"></script>  
+    <script type="text/javascript" src="js/funcionesFarm.js"></script>     
+    <script type="text/javascript" src="js/funcionesClient.js"></script>   
+    <script type="text/javascript" src="js/funcionesMessage.js"></script>  
+    <script type="text/javascript" src="./js/funciones.js"></script>
+</body>
+</html>
