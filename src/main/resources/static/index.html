@@ -78,8 +78,40 @@
     </table>
 
     <!-- Se muestran los resultados de los detalles -->    
-    <div id="listado">   
+    <div id="listado"> 
+    </div>
 
+    <br>
+
+    <div id="editCategory" style="display: none;" align="center">         
+        <input type="number" name="txtidFincaU" id="txtidFincaU" placeholder="ID" style="display: none;">
+        <input type="text" name="txtnameCatU" id="txtnameCatU" placeholder="Name">
+        <input type="text" name="txtDescriptionCatU" id="txtDescriptionCatU" placeholder="Description">        
+        <button onclick="actualizarCat();">Guardar</button>
+    </div>
+
+    <div id="editFarm" style="display: none;" align="center">         
+        <input type="number" name="txtidFarmU" id="txtidFarmU" placeholder="ID" style="display: none;">
+        <input type="text" name="txtNameFarmU" id="txtNameFarmU" placeholder="Name">
+        <input type="text" name="txtAddressFarmU" id="txtAddressFarmU" placeholder="Address">
+        <input type="text" name="txtExtensionFarmU" id="txtExtensionFarmU" placeholder="Extension">        
+        <input type="text" name="txtDescriptionFarmU" id="txtDescriptionFarmU" placeholder="Description">      
+        <button onclick="actualizarFarm();">Guardar</button>
+    </div>
+
+    <div id="editClient" style="display: none;" align="center">         
+        <input type="number" name="txtidClientU" id="txtidClientU" placeholder="ID" style="display: none;">
+        <input type="text" name="txtNameClientU" id="txtNameClientU" placeholder="Name">  
+        <input type="number" name="txtAgeClientU" id="txtAgeClientU" placeholder="Age"> 
+        <input type="text" name="txtEmailClientU" id="txtEmailClientU" placeholder="Email"> 
+        <input type="text" name="txtPassClientU" id="txtPassClientU" placeholder="Password">       
+        <button onclick="actualizarClient();">Guardar</button>
+    </div>
+
+    <div id="editMessage" style="display: none;" align="center">         
+        <input type="number" name="txtidMessageU" id="txtidMessageU" placeholder="ID" style="display: none;">
+        <input type="text" name="txtmessageU" id="txtmessageU" placeholder="Message">       
+        <button onclick="actualizarMessage();">Guardar</button>
     </div>
 
     <!-- Librerias a llamar --> 

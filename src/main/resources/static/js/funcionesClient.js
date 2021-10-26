@@ -13,7 +13,7 @@ function registrarClient(){
         dataType: 'JSON',
         data: JSON.stringify(newCat),
         
-        url:"http://152.67.45.211:81/api/Client/save",
+        url:"http://localhost:81/api/Client/save",
        
         success:function(response) {
                 console.log(response);
@@ -31,7 +31,7 @@ function registrarClient(){
 /* Mostrar los detalles  */
 function detClient(){    
     $.ajax({
-        url:'http://152.67.45.211:81/api/Client/all',
+        url:'http://localhost:81/api/Client/all',
         type: "GET",
         dataType: "json",
         success: function(respuesta){
@@ -52,6 +52,7 @@ function pintarListadoClient(respuesta){
                             <th>AGE</th>
                             <th>E-MAIL</th>
                             <th>PASSWORD</th>
+                            <th colspan="2">ACCIONES</th>
                         </tr> </thead> `;      
     for(i=0;i<respuesta.length;i++){
         myTable+="<tr align='center' style= 'border-color:#337ab7'> ";
@@ -60,8 +61,78 @@ function pintarListadoClient(respuesta){
         myTable+="<td>"+respuesta[i].age+"</td>";
         myTable+="<td>"+respuesta[i].email+"</td>";
         myTable+="<td>"+respuesta[i].password+"</td>";
+        myTable += "<td><button onclick='eliminarClient("+respuesta[i].idClient+")'>Eliminar</button></td>";
+        myTable += "<td><button onclick='UpClientEspecifico("+respuesta[i].idClient+")'>Actualizar</button></td>";
         myTable+="</tr>";
     }
     myTable+="</table>";
     $("#listado").html(myTable);
+    $("#editClient").show();
+    $("#editCategory").hide();
+    $("#editFarm").hide();
+    $("#editMessage").hide();
+}
+
+function eliminarClient(idF){
+    let mydata={
+        id:idF
+    }
+    let dataToSend = JSON.stringify(mydata);
+    $.ajax({
+        url:'http://localhost:81/api/Client/'+idF,
+        type:"DELETE",
+        data: dataToSend,
+        contentType:"application/JSON",
+        dataType:'json',
+        success:function(respuesta){
+            alert("Registro Eliminado con éxito!");
+            detClient();
+        }
+    });
+}
+
+function UpClientEspecifico(idItem){   
+    $.ajax({
+        url:'http://localhost:81/api/Client/'+idItem,
+        type: "GET",
+        dataType: "json",
+        success: function(respuesta){
+            $("#txtidClientU").val(respuesta.idClient);
+            $("#txtNameClientU").val(respuesta.name);
+            $("#txtAgeClientU").val(respuesta.age);
+            $("#txtEmailClientU").val(respuesta.email);
+            $("#txtPassClientU").val(respuesta.password);
+        }
+    });
+}
+
+function actualizarClient(){
+    let myData= {
+        idClient: $("#txtidClientU").val(),
+        name:$("#txtNameClientU").val(),
+        age:$("#txtAgeClientU").val(),
+        email:$("#txtEmailClientU").val(),
+        password:$("#txtPassClientU").val()
+    };
+    
+    let dataToSend = JSON.stringify(myData);
+
+    $.ajax({
+        url:'http://localhost:81/api/Client/update',
+        type:"PUT",
+        data: dataToSend,
+        contentType:"application/JSON",
+        //dataType:'json',
+        success:function(respuesta){
+            alert("Registro actualizado con éxito!");
+            $("#txtidClientU").val("");
+            $("#txtNameClientU").val("");
+            $("#txtAgeClientU").val("");
+            $("#txtEmailClientU").val("");
+            $("#txtPassClientU").val("");                    
+            detClient();
+        },error: function (xhr, status) {
+            alert("Error peticion PUT... " + status );
+        }
+    });
 }
